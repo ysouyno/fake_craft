@@ -43,3 +43,8 @@
 [[file:files/20240925_1.png]]
 
 所以，只好重新创建并设置了一下工程。
+
+关于 ~vertex.sl~ 中 ~rotationMatrix~ 函数，就是沿哪个轴旋转，代码中沿 ~Y~ 轴的效果如下：
+
+#+ATTR_HTML: :width 60%
+[[file:files/20240925_2.gif]]
