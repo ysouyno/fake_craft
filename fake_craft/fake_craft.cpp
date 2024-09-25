@@ -5,7 +5,7 @@
 #include <GL/glew.h>
 #include <GL/glfw.h>
 
-static GLfloat g_vertex_buffer_data[24];
+static GLfloat g_vertex_buffer_data[72];
 
 static const GLushort g_element_buffer_data[] = {
   0, 3, 2,
@@ -43,6 +43,8 @@ int main(int argc, char** argv) {
     return -1;
   }
   make_cube(g_vertex_buffer_data, 0, 0, -10, 0.5);
+  make_cube(g_vertex_buffer_data + 24, -3, 0, -10, 0.5);
+  make_cube(g_vertex_buffer_data + 48, 3, 0, -10, 0.5);
   GLuint vertex_buffer = make_buffer(
     GL_ARRAY_BUFFER,
     sizeof(g_vertex_buffer_data),
@@ -74,7 +76,9 @@ int main(int argc, char** argv) {
     glVertexAttribPointer(index, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 3, 0);
     glEnableVertexAttribArray(index);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer);
-    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0);
+    glDrawElementsBaseVertex(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0, 0);
+    glDrawElementsBaseVertex(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0, 8);
+    glDrawElementsBaseVertex(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, 0, 16);
     glDisableVertexAttribArray(index);
 
     glfwSwapBuffers();
