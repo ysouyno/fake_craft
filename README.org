@@ -1,0 +1,16 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:t todo:t |:t
+#+title: fake_craft 开发记录
+#+date: <2024-09-25 周三>
+#+author: ysouyno
+#+email:
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 29.4 (Org mode 9.6.15)
+#+cite_export:
+
+尝试从零开始实现一下 [[https://github.com/fogleman/Craft][Craft]]，因为 [[https://github.com/minetest/minetest][minetest]] 体量太大，入手困难。
