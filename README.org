@@ -48,3 +48,8 @@
 
 #+ATTR_HTML: :width 60%
 [[file:files/20240925_2.gif]]
+
+一直到 ~instanced~ 这个 ~commit~ ，我感觉作者可能在尝试各种函数的效果，比如目前的效果：
+
+#+ATTR_HTML: :width 60%
+[[file:files/20240925_3.gif]]
