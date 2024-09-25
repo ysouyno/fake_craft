@@ -36,3 +36,10 @@
 
 #+ATTR_HTML: :width 60%
 [[file:files/20240925_0.png]]
+
+回到家，在真正的 ~vs2010~ 上添加工程，却提示：
+
+#+ATTR_HTML: :width 60%
+[[file:files/20240925_1.png]]
+
+所以，只好重新创建并设置了一下工程。
