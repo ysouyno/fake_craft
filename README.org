@@ -71,12 +71,12 @@
 2. 这个矩阵的用处是啥？我知道如果是最后一列的话，表示 ~位移~ 。
 
 #+begin_src glsl
-return mat4(
-    1.0, 0.0, 0.0, 0.0,
-    0.0, 1.0, 0.0, 0.0,
-    0.0, 0.0, 1.0, 0.0,
-    t.x, t.y, t.z, 1.0
-);
+  return mat4(
+              1.0, 0.0, 0.0, 0.0,
+              0.0, 1.0, 0.0, 0.0,
+              0.0, 0.0, 1.0, 0.0,
+              t.x, t.y, t.z, 1.0
+              );
 #+end_src
 
 目前 ~81 instanced cubes~ 效果如下：
@@ -88,3 +88,11 @@ return mat4(
 
 #+ATTR_HTML: :width 60%
 [[file:files/20240926_2.gif]]
+
+可能是我在抄代码过程中漏掉了，这两行代码加上去之后，立方块的显示更形象了，不是之前的纯色。
+#+begin_src c++
+  glEnableVertexAttribArray(index);
+  glEnableVertexAttribArray(texture_index);
+#+end_src
+
+为了更好的在 ~emacs~ 中写 ~glsl~ 的代码，我安装了 ~glsl-mode~ ，效果不错。
