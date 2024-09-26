@@ -101,3 +101,35 @@
 
 #+ATTR_HTML: :width 60%
 [[file:files/20240926_4.gif]]
+
+对这段代码进行一下解说，参考下图：
+
+#+ATTR_HTML: :width 40%
+[[file:files/20240926_5.png]]
+
+#+begin_src c++
+  #define N 0.25
+
+  static const GLfloat g_uv_data[] = {
+    0, 0, N, N, 0, N,
+    0, 0, N, 0, N, N,
+    N, 0, 0, N, 0, 0,
+    N, 0, N, N, 0, N,
+    0, N, 0, 0, N, 0,
+    0, N, N, 0, N, N,
+    0, 0, N, 0, N, N,
+    0, 0, N, N, 0, N,
+    N, 0, 0, 0, 0, N,
+    N, 0, 0, N, N, N,
+    0, 0, N, N, N, 0,
+    0, 0, 0, N, N, N
+  };
+#+end_src
+
+1. 数组中的每一行表示一个三角形的三个顶点坐标。
+2. 立方体的每一个面需要用两个三角形来表示。
+3. 共十二行，刚好表示一个立方体的所有纹理。
+4. ~N~ 为 ~0.25~ ，所以显示的是左下角的方块。
+
+#+ATTR_HTML: :width 40%
+[[file:fake_craft/texture.png]]
