@@ -138,3 +138,8 @@
 
 #+ATTR_HTML: :width 60%
 [[file:files/20240926_6.gif]]
+
+当前 ~commit: boosh, - top/bottom/side textures, - select block type~ 的效果如下（有点样子了）：
+
+#+ATTR_HTML: :width 60%
+[[file:files/20240926_7.gif]]

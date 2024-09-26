@@ -129,22 +129,28 @@ void perspective_matrix(float* matrix, float fov, float aspect,
 }
 
 void make_cube(float* vertex, float* texture, float x, float y, float z, float n) {
-  float* v = vertex;
-  float* t = texture;
-  float a = 0.00;
-  float b = 0.25;
-  *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = b; *(t++) = a; *(t++) = b;
-  *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = a; *(t++) = b; *(t++) = b;
-  *(t++) = b; *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = a; *(t++) = a;
-  *(t++) = b; *(t++) = a; *(t++) = b; *(t++) = b; *(t++) = a; *(t++) = b;
-  *(t++) = a; *(t++) = b; *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = a;
-  *(t++) = a; *(t++) = b; *(t++) = b; *(t++) = a; *(t++) = b; *(t++) = b;
-  *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = a; *(t++) = b; *(t++) = b;
-  *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = b; *(t++) = a; *(t++) = b;
-  *(t++) = b; *(t++) = a; *(t++) = a; *(t++) = a; *(t++) = a; *(t++) = b;
-  *(t++) = b; *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = b; *(t++) = b;
-  *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = b; *(t++) = b; *(t++) = a;
-  *(t++) = a; *(t++) = a; *(t++) = a; *(t++) = b; *(t++) = b; *(t++) = b;
+  float *v = vertex;
+  float *t = texture;
+  float s = 0.125;
+  float a = 0;
+  float b = s;
+  float du, dv;
+  du = 0; dv = s;
+  *(t++) = a + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = b + dv; *(t++) = a + du; *(t++) = b + dv;
+  *(t++) = a + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = b + dv;
+  *(t++) = b + du; *(t++) = a + dv; *(t++) = a + du; *(t++) = b + dv; *(t++) = a + du; *(t++) = a + dv;
+  *(t++) = b + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = b + dv; *(t++) = a + du; *(t++) = b + dv;
+  du = 0; dv = s + s;
+  *(t++) = a + du; *(t++) = b + dv; *(t++) = a + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = a + dv;
+  *(t++) = a + du; *(t++) = b + dv; *(t++) = b + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = b + dv;
+  du = 0; dv = 0;
+  *(t++) = a + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = b + dv;
+  *(t++) = a + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = b + dv; *(t++) = a + du; *(t++) = b + dv;
+  du = 0; dv = s;
+  *(t++) = b + du; *(t++) = a + dv; *(t++) = a + du; *(t++) = a + dv; *(t++) = a + du; *(t++) = b + dv;
+  *(t++) = b + du; *(t++) = a + dv; *(t++) = a + du; *(t++) = b + dv; *(t++) = b + du; *(t++) = b + dv;
+  *(t++) = a + du; *(t++) = a + dv; *(t++) = b + du; *(t++) = b + dv; *(t++) = b + du; *(t++) = a + dv;
+  *(t++) = a + du; *(t++) = a + dv; *(t++) = a + du; *(t++) = b + dv; *(t++) = b + du; *(t++) = b + dv;
   *(v++) = x - n; *(v++) = y - n; *(v++) = z - n;
   *(v++) = x - n; *(v++) = y + n; *(v++) = z + n;
   *(v++) = x - n; *(v++) = y + n; *(v++) = z - n;
