@@ -53,3 +53,18 @@
 
 #+ATTR_HTML: :width 60%
 [[file:files/20240925_3.gif]]
+
+* <2024-09-26 周四>
+
+对昨天抄写的代码的理解：
+
+1. ~g_vertex_buffer_data[72];~ 一开始是 ~24~ 个大小，后来由于要同时显示三个立方体，所以改成了 ~72~ ，为什么要用 ~24~ ？因为一个立方体需要 ~8~ 个点来确定，每个点有三个值表示它的空间坐标，所以要完全表达一个立方体至少要 ~3 * 8 = 24~ 个大小。
+2. ~void make_cube(float* output, float x, float y, float z, float n)~ 函数是什么意思？ ~output~ 是返回值，即上个问题的 ~g_vertex_buffer_data~ 变量， ~x~ ， ~y~ ， ~z~ 表示立方体的正中心， ~n~ 表示正中心离三个面的距离，所以 ~make_cube~ 生成的立方体的边长是 ~2n~ 。
+3. ~rotationMatrix~ 这个函数是做什么的？可以参考《LearnOpenGL CN》教程中的：“[[https://learnopengl-cn.github.io/01%20Getting%20started/07%20Transformations/#_18][旋转]]”，即：
+
+#+ATTR_HTML: :width 80%
+[[file:files/20240926_0.png]]
+
+同时有个问题没解决：
+
++ ~rotationMatrix(vec3(1, 0, 0), gl_InstanceID * 0.2)~ 这里为什么要这么写？ ~gl_InstanceID~ 是个啥？为什么它要沿 ~x~ 轴旋转？
