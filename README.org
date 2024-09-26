@@ -133,3 +133,8 @@
 
 #+ATTR_HTML: :width 40%
 [[file:fake_craft/texture.png]]
+
+当前 ~commit: camera rotation, cull face, etc.~ 的效果如下：
+
+#+ATTR_HTML: :width 60%
+[[file:files/20240926_6.gif]]
