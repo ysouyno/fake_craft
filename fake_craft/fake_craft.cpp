@@ -4,6 +4,7 @@
 #include "modern.h"
 #include <GL/glew.h>
 #include <GL/glfw.h>
+#include <stdio.h>
 
 static GLfloat g_vertex_buffer_data[24];
 
@@ -22,6 +23,23 @@ static const GLushort g_element_buffer_data[] = {
   0, 2, 6,
 };
 
+typedef struct {
+  unsigned int frames;
+  double timestamp;
+} FPS;
+
+void update_fps(FPS* fps) {
+  fps->frames++;
+  double now = glfwGetTime();
+  double elapsed = now - fps->timestamp;
+  if (elapsed >= 1) {
+    int result = fps->frames / elapsed;
+    fps->frames = 0;
+    fps->timestamp = now;
+    printf("%d\n", result);
+  }
+}
+
 void set_3d(float* matrix) {
   int width;
   int height;
@@ -38,6 +56,7 @@ int main(int argc, char** argv) {
   if (!glfwOpenWindow(600, 400, 8, 8, 8, 0, 24, 0, GLFW_WINDOW)) {
     return -1;
   }
+  glfwSwapInterval(0);
   glfwSetWindowTitle("Modern GL");
   if (glewInit() != GLEW_OK) {
     return -1;
@@ -57,8 +76,10 @@ int main(int argc, char** argv) {
   GLuint fragment_shader = load_shader(GL_FRAGMENT_SHADER, "fragment.glsl");
   GLuint program = make_program(vertex_shader, fragment_shader);
   float matrix[16];
+  FPS fps = { 0, 0 };
   while (glfwGetWindowParam(GLFW_OPENED)) {
-    glClearColor(0.5, 0.69, 1.0, 1.0);
+    update_fps(&fps);
+    glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     set_3d(matrix);
 
@@ -80,5 +101,7 @@ int main(int argc, char** argv) {
 
     glfwSwapBuffers();
   }
+
+  glfwTerminate();
   return 0;
 }

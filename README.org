@@ -83,3 +83,8 @@ return mat4(
 
 #+ATTR_HTML: :width 60%
 [[file:files/20240926_1.gif]]
+
+紧接着的一个 ~commit~ 效果如下：
+
+#+ATTR_HTML: :width 60%
+[[file:files/20240926_2.gif]]
