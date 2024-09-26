@@ -96,3 +96,8 @@
 #+end_src
 
 为了更好的在 ~emacs~ 中写 ~glsl~ 的代码，我安装了 ~glsl-mode~ ，效果不错。
+
+当前 ~commit: textures, code cleanup~ 的效果如下：
+
+#+ATTR_HTML: :width 60%
+[[file:files/20240926_4.gif]]
